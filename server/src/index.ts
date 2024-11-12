@@ -17,33 +17,33 @@ const typeDefs = `#graphql
 `;
 
 const books = [
-	{
-		title: "The Awakening",
-		author: "Kate Chopin",
-	},
-	{
-		title: "City of Glass",
-		author: "Paul Auster",
-	},
+  {
+    title: "The Awakening",
+    author: "Kate Chopin",
+  },
+  {
+    title: "City of Glass",
+    author: "Paul Auster",
+  },
 ];
 
 // Apollo Serverがどのデータセットをクエリで実行するのかを設定する。
 // リゾルバは、特定の型に関連するデータの取得方法を定義する。
 const resolvers = {
-	Query: {
-		books: () => books,
-	},
+  Query: {
+    books: () => books,
+  },
 };
 
 // Apollo Serverインスタンスの初期化
 const server = new ApolloServer({
-	typeDefs,
-	resolvers,
+  typeDefs,
+  resolvers,
 });
 
 // サーバ起動
 const { url } = await startStandaloneServer(server, {
-	listen: { port: 4000 },
+  listen: { port: 4000 },
 });
 
 console.log(`🚀  Server ready at: ${url}`);

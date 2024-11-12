@@ -11,20 +11,20 @@ const GET_BOOKS = gql`
 `;
 
 const DisplayBooks = () => {
-	const { loading, error, data } = useQuery(GET_BOOKS);
+  const { loading, error, data } = useQuery(GET_BOOKS);
 
-	if (loading) return <p>Loading...</p>;
-	if (error) return <p>Error : {error.message}</p>;
+  if (loading) return <p>Loading...</p>;
+  if (error) return <p>Error : {error.message}</p>;
 
-	return data.books.map(
-		({ title, author }: { title: string; author: string }) => (
-			<div key={title}>
-				<h3>{title}</h3>
-				<p>author: {author}</p>
-				<br />
-			</div>
-		),
-	);
+  return data.books.map(
+    ({ title, author }: { title: string; author: string }) => (
+      <div key={title}>
+        <h3>{title}</h3>
+        <p>author: {author}</p>
+        <br />
+      </div>
+    ),
+  );
 };
 
 export { DisplayBooks };
